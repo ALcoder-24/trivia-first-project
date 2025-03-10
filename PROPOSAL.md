@@ -23,19 +23,19 @@ The game of choice for the project is Trivia. The intentions of the game is to m
 
 ### Wire Frame
 **Initial landing view**
-![Trivia Time](https://imgur.com/a/0twwvSS)
+![Trivia Time](./assets/landing.jpeg)
 
 **If playing single Player**
-![Trivia Time](https://imgur.com/r3o4ChS)
+![Trivia Time](./assets/singleGameplay.jpeg)
 
 **Game final**
-![Trivia Time](https://imgur.com/G66M7Lz)
+![Trivia Time](./assets/singleFinal.jpeg)
 
 **If playing in Teams**
-![Trivia Time](https://imgur.com/tmtoi49) 
+![Trivia Time](./assets/multiGameplay.jpeg) 
 
 **Game final**
-![Trivia Time](https://imgur.com/fSs2TU3)
+![Trivia Time](./assets/multiFinal.jpeg)
 
 ### PseudoCode
 ```javascript
@@ -52,9 +52,9 @@ The game of choice for the project is Trivia. The intentions of the game is to m
 | Day       |   | Task                        | Blockers | Notes/Thoughts |
 |-----------|---|-----------------------------|----------|----------------|
 | Monday    |   | Create and present proposal |          |                |
-| Tuesday   |   | Create html,js, css files   |          |                |
-| Wedensday |   | Create basic scaffolding    |          |                |
-| Thursday  |   | Add functionality           |          |                |
+| Tuesday   |   | start HTML and CSS   |          |                |
+| Wedensday |   | Add functions    |          |                |
+| Thursday  |   | Add functions           |          |                |
 | Friday    |   | Add styling                 |          |                |
 | Saturday  |   | Work on stretch goals       |          |                |
 | Sunday    |   | final test run              |          |                |
@@ -62,9 +62,7 @@ The game of choice for the project is Trivia. The intentions of the game is to m
 
 
 
-![Trivia Time](https://imgur.com/r3o4ChS)
 
-![Trivia Time](https://imgur.com/fSs2TU3)
 
 
 
