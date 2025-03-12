@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TRIVIA TIME</title>
+    <script defer src="./app.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+  <div id="initial-screen">
+      <h1>TRIVIA TIME</h1>
+      <h2>"Let's see you what you know"</h2>
+    <div id="game-options">
+      <button id="single">Single Player</button>
+      </div>
+      <div>
+      <button id="start-game">Play</button>
+    </div>
+  </div>
+    <!--Below here is single player display -->
+    <div id="question-placeholder">
+      <p id="question">All questions displayed here</p>
+    </div>
+    <div id="score-board">
+      <p>Score: <span id="score">0</span></p>
+    </div>
+    <div class="options">
+        <div class="option">A</div>
+        <div class="option">B</div>   
+        <div class="option">C</div>
+        <div class="option">D</div>   
+    </div>
+    <div id="submit">
+        <button>Submit</button>
+    </div>
     
-</body>
+    <div id="continue">
+        <button>Next Question</button>
+    </div>
+    <!--Below is final display when game ends-->
+    
+    <div id="final-score-display">
+        <p>Final score: <span id="score">0</span></p>
+    </div>
+
+  </body>
 </html>
