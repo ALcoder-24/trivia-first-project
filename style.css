@@ -65,6 +65,7 @@ gap: 10px;
     padding-right: 75px;
     bottom: 225px;
     font-size: 25px;
+    display: none;
 
 }
 
@@ -74,7 +75,7 @@ gap: 10px;
     left: 0;
     padding-left: 50px;
     bottom: 55px;
-    
+    display: none;
 }
 
 button {
@@ -107,4 +108,18 @@ button {
 .answer-button:disabled{
     cursor: not-allowed;
     opacity: 0.7;
+}
+
+#final-score-display{
+    display: none;
+}
+
+#restart-game{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding-left: 50px;
+    padding-bottom: 10px;
+    
+    
 }

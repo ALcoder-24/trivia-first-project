@@ -125,19 +125,33 @@ function nextQuestion() {
 
     if(currentQuestionIndex < triviaData.length) {
         displayQuestion(triviaData[currentQuestionIndex]);
-    }else{
+    } else {
+        document.getElementById("final-score-display").style.display = "block";
+        document.getElementById("final-score").textContent = score;
+        document.getElementById("next-question").style.display = "none";
+        document.getElementById("restart-game").style.display ="block";
         alert("Final Score: " + score);
+        
+    }}
+
+    function restartGame(){
         currentQuestionIndex = 0;
         score = 0;
-        document.getElementById("score").textContent = score;
+        document.getElementById("score").textContent =score;
+        document.getElementById("restart-game").style.display = "none";
+        document.getElementById("final-score-display").style.display ="none";
+        document.getElementById("next-question").style.display = "block";
+
         displayQuestion(triviaData[currentQuestionIndex]);
     }
-}
-
 
 function startTrivia() {
     document.getElementById("landingPage").style.display = "none";
     document.getElementById("triviaMode").style.display = "block";
+    document.getElementById("score-board").style.display = "block";
+    document.getElementById("next-question").style.display = "block";
+    document.getElementById("final-score-display").style.display = "none";
+    
     displayQuestion(triviaData[currentQuestionIndex]);
 }
 
