@@ -1,5 +1,5 @@
 const triviaData = [
-    // Science Questions
+    
     {
         question: "Which artist holds the record for the most albums sold worldwide?",
         options: ["Taylor Swift ", "Michael Jackson", "The Beatles", "Madonna"],
@@ -12,7 +12,7 @@ const triviaData = [
       correctAnswer: "Skin"
     },
   
-    // History Questions
+    
     {
         question: "What was the name of the failed invasion that took place in Cuba during John F. Kennedy's presidency, intended to overthrow Fidel Castro?",
         options: ["The Cuban Missile Crisis", "Bay of Pigs Invasion", "Operation Mongoose", "The Cuban Revolution"],
@@ -32,7 +32,6 @@ const triviaData = [
       },
       
   
-    // Geography Questions
     {
         question: "In which country is Machu Picchu, the ancient Incan city, located?",
         options: ["Mexico", "Peru", "Chile", "Ecuador"],
@@ -45,7 +44,6 @@ const triviaData = [
         correctAnswer: "The Great Depression"
       },
   
-    // Pop Culture Questions
     {
         question: "Who wrote the famous 1925 novel *The Great Gatsby*, a classic of American literature?",
         options: ["Ernest Hemingway", "F. Scott Fitzgerald", "John Steinbeck", "Mark Twain"],
@@ -65,5 +63,99 @@ const triviaData = [
       },
       
   ];
+
+  let currentQuestionIndex = 0;
+  let score = 0;
+  let gameActive = true;
   
-  
+
+  //const highScoreMessage = () => "That was impressive";
+  //const averageScoreMessage = () => "Your'e pretty average";
+  //const lowScoreMessage = () => "Time to hit the library ";
+
+const questionElement = document.querySelector("#question");
+const playButton = document.querySelector("#start-game");
+const nextQuestionButton = document.querySelector("#next-question button");
+const answerButtonsContainer = document.querySelector("#answerButtons");
+
+playButton.addEventListener("click", startTrivia);
+
+
+nextQuestionButton.addEventListener("click", nextQuestion); 
+
+
+
+
+function displayQuestion(questionObj) {
+    questionElement.textContent = questionObj.question;
+    answerButtonsContainer.innerHTML ="";
+    
+    questionObj.options.forEach(option => {
+     const button = document.createElement("button");
+     button.textContent = option;
+     button.classList.add("answer-button");
+     button.addEventListener("click", function() {
+     checkAnswer(button, option, questionObj.correctAnswer);   
+     });
+     answerButtonsContainer.appendChild(button); 
+    });
+
+    document.querySelectorAll(".answer-button").forEach(button => {
+        button.disabled = false;
+        button.classList.remove("correct", "incorrect");
+    });
+}
+
+function checkAnswer(button, selectedOption, correctAnswer) {
+    document.querySelectorAll(".answer-button").forEach(btn => {
+        btn.disabled =true;
+    });
+
+    if(selectedOption === correctAnswer) {
+        button.classList.add("correct");
+        score++;
+        document.getElementById("score").textContent = score;
+    } else {
+        button.classList.add("incorrect");
+    }
+}
+
+function nextQuestion() {
+    currentQuestionIndex++;
+
+    if(currentQuestionIndex < triviaData.length) {
+        displayQuestion(triviaData[currentQuestionIndex]);
+    }else{
+        alert("Final Score: " + score);
+        currentQuestionIndex = 0;
+        score = 0;
+        document.getElementById("score").textContent = score;
+        displayQuestion(triviaData[currentQuestionIndex]);
+    }
+}
+
+
+function startTrivia() {
+    document.getElementById("landingPage").style.display = "none";
+    document.getElementById("triviaMode").style.display = "block";
+    displayQuestion(triviaData[currentQuestionIndex]);
+}
+
+//function shuffleQuestions() {
+   // for (let i = triviaData.length - 1; i > 0; i--){
+   // let j = Math.floor(Math.random()*(i + 1));    
+    //}
+//}
+
+
+
+
+   
+
+
+
+
+
+
+
+

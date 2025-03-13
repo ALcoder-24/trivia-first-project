@@ -8,35 +8,27 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-  <div id="initial-screen">
+  <div id="landingPage">
       <h1>TRIVIA TIME</h1>
       <h2>"Let's see you what you know"</h2>
-    <div id="game-options">
-      <button id="single">Single Player</button>
+    <div id="play-button">
+      <button onclick="startTrivia()">Play</button>
       </div>
-      <div>
-      <button id="start-game">Play</button>
-    </div>
   </div>
-    <!--Below here is single player display -->
-    <div id="question-placeholder">
-      <p id="question">All questions displayed here</p>
+    <!--Below here is game view -->
+    <div id="triviaMode" class = "container">
+    <p id="question">All questions displayed here</p>
+     <div id="answerButtons"></div>
+          
     </div>
     <div id="score-board">
       <p>Score: <span id="score">0</span></p>
     </div>
-    <div class="options">
-        <div class="option">A</div>
-        <div class="option">B</div>   
-        <div class="option">C</div>
-        <div class="option">D</div>   
-    </div>
-    <div id="submit">
-        <button>Submit</button>
-    </div>
     
-    <div id="continue">
-        <button>Next Question</button>
+    
+    
+    <div id="next-question">
+        <button onclick = "nextQuestion()">Next Question</button>
     </div>
     <!--Below is final display when game ends-->
     

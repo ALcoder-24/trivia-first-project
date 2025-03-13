@@ -17,7 +17,7 @@ body {
     
 }
 
-#initial-screen {
+#landingPage{
     text-align: center;
      margin-bottom: 100px;
 
@@ -28,7 +28,7 @@ h2{
    
 }
 
-#question-placeholder {
+.container {
     position: absolute;
     left: 0;
     padding-left: 50px;
@@ -37,28 +37,26 @@ h2{
 
 }
 
-.options{
-    position: absolute;
-    left: 0;
-    padding-left: 50px;
-    top: 175px;
-    display: flex;
-    gap: 30px;
-    flex-direction:column;
+#question{
+    padding: 20px;
 }
- .option{
+
+#answerButtons{
+ display: flex;
+justify-content: center;
+align-items: left;
+flex-direction: column;
+gap: 10px;
+}
+
+.answer-button{
     background-color: lightblue;
     color: black;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+    border-radius: 5%;
+    width: 115px;
+    height: 75px;
+}
 
-
- }   
 
 
 #score-board{
@@ -70,16 +68,8 @@ h2{
 
 }
 
-#submit{
-   
-    position: absolute;
-    left: 0;
-    padding-left: 50px;
-    bottom: 115px;
-    
-}
 
-#continue{
+    #next-question{
     position: absolute;
     left: 0;
     padding-left: 50px;
@@ -92,13 +82,29 @@ button {
     padding: 10px 10px;
 }
 
-#single{
-    margin-bottom: 10px;
-}
 
 #final-score-display{
     font-size: 25px;
 }
 
+#triviaMode{
+    display: none;
+}
 
+.correct {
+    background-color:green ;
+    color: white;
+    font-weight: bold;
+}
 
+.incorrect {
+    background-color: red;
+    color: white;
+    font-weight:bold;
+
+}
+
+.answer-button:disabled{
+    cursor: not-allowed;
+    opacity: 0.7;
+}
