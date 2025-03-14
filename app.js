@@ -69,9 +69,9 @@ const triviaData = [
   let gameActive = true;
   
 
-  //const highScoreMessage = () => "That was impressive";
-  //const averageScoreMessage = () => "Your'e pretty average";
-  //const lowScoreMessage = () => "Time to hit the library ";
+  const highScoreMessage = () => "That was impressive";
+  const averageScoreMessage = () => "Your'e pretty average";
+  const lowScoreMessage = () => "Time to hit the library ";
 
 const questionElement = document.querySelector("#question");
 const playButton = document.querySelector("#start-game");
@@ -85,26 +85,28 @@ nextQuestionButton.addEventListener("click", nextQuestion);
 
 
 
-
 function displayQuestion(questionObj) {
     questionElement.textContent = questionObj.question;
     answerButtonsContainer.innerHTML ="";
     
-    questionObj.options.forEach(option => {
-     const button = document.createElement("button");
-     button.textContent = option;
-     button.classList.add("answer-button");
-     button.addEventListener("click", function() {
-     checkAnswer(button, option, questionObj.correctAnswer);   
-     });
-     answerButtonsContainer.appendChild(button); 
-    });
+    let shuffledOptions = [...questionObj.options].sort(()=> Math.random() - 0.5);
+
+    shuffledOptions.forEach(option => {
+        const button = document.createElement("button");
+        button.textContent = option;
+        button.classList.add("answer-button");
+        button.addEventListener("click", function() {
+        checkAnswer(button, option, questionObj.correctAnswer);   
+        });
+        answerButtonsContainer.appendChild(button); 
+       });
+    }
 
     document.querySelectorAll(".answer-button").forEach(button => {
         button.disabled = false;
         button.classList.remove("correct", "incorrect");
     });
-}
+
 
 function checkAnswer(button, selectedOption, correctAnswer) {
     document.querySelectorAll(".answer-button").forEach(btn => {
@@ -130,17 +132,30 @@ function nextQuestion() {
         document.getElementById("final-score").textContent = score;
         document.getElementById("next-question").style.display = "none";
         document.getElementById("restart-game").style.display ="block";
-        alert("Final Score: " + score);
         
-    }}
+        let message = "";
+        if(score <= 4) {
+            message = "Time to hit the library!";
+        } else if (score <= 7) {
+            message = "You're pretty average!";
+        } else {
+            message = "That was impressive!";
+        }
+
+        document.getElementById("final-message").textContent = message;
+        document.getElementById("final-message").style.display = "block"; 
+
+
+     }}
 
     function restartGame(){
         currentQuestionIndex = 0;
         score = 0;
         document.getElementById("score").textContent =score;
         document.getElementById("restart-game").style.display = "none";
-        document.getElementById("final-score-display").style.display ="none";
+        document.getElementById("final-score-display").style.display ="none"                                   ;
         document.getElementById("next-question").style.display = "block";
+        document.getElementById("final-message").style.display = "none";
 
         displayQuestion(triviaData[currentQuestionIndex]);
     }
@@ -152,6 +167,10 @@ function startTrivia() {
     document.getElementById("next-question").style.display = "block";
     document.getElementById("final-score-display").style.display = "none";
     
+    // [POST MVP]
+    // Shuffle triviaData array
+    // Change length of triviaData array based on user input size
+
     displayQuestion(triviaData[currentQuestionIndex]);
 }
 
