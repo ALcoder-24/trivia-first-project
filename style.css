@@ -38,7 +38,8 @@ h2{
 }
 
 #question{
-    padding: 20px;
+    padding: 40px;
+    
 }
 
 #answerButtons{
@@ -46,7 +47,8 @@ h2{
 justify-content: center;
 align-items: left;
 flex-direction: column;
-gap: 10px;
+gap: 20px;
+
 }
 
 .answer-button{
@@ -54,7 +56,9 @@ gap: 10px;
     color: black;
     border-radius: 5%;
     width: 115px;
-    height: 75px;
+    height: 85px;
+    max-width: 80%;
+    font-size: clamp(14px, 2vw,18px);
 }
 
 
@@ -62,20 +66,19 @@ gap: 10px;
 #score-board{
     position: absolute;
     right: 0;
-    padding-right: 75px;
-    bottom: 225px;
+    padding-right: 125px;
+    bottom: 185px;
     font-size: 25px;
     display: none;
 
 }
 
 
-    #next-question{
-    position: absolute;
-    left: 0;
-    padding-left: 50px;
-    bottom: 55px;
-    display: none;
+#next-question{
+position: absolute;
+text-align: center;
+padding-top: 100px;
+display: none;
 }
 
 button {
@@ -116,10 +119,9 @@ button {
 
 #restart-game{
     position: absolute;
-    left: 0;
+    center: 0;
     bottom: 0;
-    padding-left: 50px;
-    padding-bottom: 10px;
+    margin-bottom: 250px;
     
     
 }
