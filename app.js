@@ -97,11 +97,9 @@ const averageScoreMessage = () => "Your'e pretty average";
 const lowScoreMessage = () => "Time to hit the library ";
 
 const questionElement = document.querySelector("#question");
-const playButton = document.querySelector("#start-game");
 const nextQuestionButton = document.querySelector("#next-question button");
 const answerButtonsContainer = document.querySelector("#answerButtons");
 
-playButton.addEventListener("click", startTrivia);
 
 nextQuestionButton.addEventListener("click", nextQuestion);
 

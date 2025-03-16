@@ -6,12 +6,12 @@ The game of choice for the project is Trivia. The intentions of the game is to m
 ### User Stories
 #### MVP Goals 
 * As a user, I want to see a landing page when I arrive at the website to know I’m in the right place.
-* As a user, I want to see “single-player”, and "submit",  and "next" question" on the landing page, so I instantly know my options for gameplay.
-* As a user, I want to be able to click on the “single-player”, and “questions” buttons, making it easy to navigate throughout the game.
+* As a user, I want to see a “play” button, on the landing page, to start the game. 
+* As a user, I want to be able to click on the “next question” button, making it easy to navigate throughout the game.
 * As a user, I want visual feedback after selecting, so I know my choice has been registered and whether the correct answer was selected
 * As a user, I want to see the selections are being selected when I click
 * As a user, I want to be presented with a clear message indicating how many questions were answered correctly 
-* As a user I want to see a specific message depending on your players final score. 
+* As a user I want to see a specific message depending on the players final score. 
 * As a player I would like user friendly and engaging UI
 * As a player I would like the option to restart the game.
 * As a player I want the game to keep track of all the questions answered correctly.
