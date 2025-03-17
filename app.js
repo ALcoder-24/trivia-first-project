@@ -90,7 +90,6 @@ const triviaData = [
 
 let currentQuestionIndex = 0;
 let score = 0;
-let gameActive = true;
 
 const highScoreMessage = () => "That was impressive";
 const averageScoreMessage = () => "Your'e pretty average";
@@ -99,8 +98,9 @@ const lowScoreMessage = () => "Time to hit the library ";
 const questionElement = document.querySelector("#question");
 const nextQuestionButton = document.querySelector("#next-question button");
 const answerButtonsContainer = document.querySelector("#answerButtons");
+const playButton = document.querySelector("#start-game")
 
-
+playButton.addEventListener("click", startTrivia);
 nextQuestionButton.addEventListener("click", nextQuestion);
 
 function displayQuestion(questionObj) {
@@ -134,13 +134,16 @@ function checkAnswer(button, selectedOption, correctAnswer) {
   } else {
     button.classList.add("incorrect");
   }
+  document.getElementById("next-question").style.display = "block";
 }
+
 
 function nextQuestion() {
   currentQuestionIndex++;
 
   if (currentQuestionIndex < triviaData.length) {
     displayQuestion(triviaData[currentQuestionIndex]);
+    document.getElementById("next-question").style.display ="none";
   } else {
     document.getElementById("final-score-display").style.display = "block";
     document.getElementById("final-score").textContent = score;
@@ -167,17 +170,20 @@ function restartGame() {
   document.getElementById("score").textContent = score;
   document.getElementById("restart-game").style.display = "none";
   document.getElementById("final-score-display").style.display = "none";
-  document.getElementById("next-question").style.display = "block";
+  document.getElementById("next-question").style.display = "none";
   document.getElementById("final-message").style.display = "none";
 
   displayQuestion(triviaData[currentQuestionIndex]);
+  document.getElementById("landingPage").style.display = "none";
+  document.getElementById("triviaMode").style.display = "block";
+  document.getElementById("score-board").style.display = "block";
 }
 
 function startTrivia() {
   document.getElementById("landingPage").style.display = "none";
   document.getElementById("triviaMode").style.display = "block";
   document.getElementById("score-board").style.display = "block";
-  document.getElementById("next-question").style.display = "block";
+  document.getElementById("next-question").style.display = "none";
   document.getElementById("final-score-display").style.display = "none";
 
   

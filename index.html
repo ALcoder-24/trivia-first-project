@@ -12,11 +12,11 @@
       <h1>TRIVIA TIME</h1>
       <h2>Try to answer all 10 questions correctly to get a perfect score</h2>
     <div id="play-button">
-      <button onclick="startTrivia()">Play</button>
+      <button id="start-game">Play</button>
       </div>
   </div>
     <!--Below here is game view -->
-    <div id="triviaMode" class = "container">
+    <div id="triviaMode" class = "container" style="display: none;">
     <p id="question">All questions displayed here</p>
      <div id="answerButtons"></div>
           
@@ -26,8 +26,8 @@
     </div>
     
     
-    <div id="next-question">
-        <button onclick = "nextQuestion()">Next Question</button>
+    <div id="next-question" style="display: none;">
+        <button>Next Question</button>
     </div>
     <!--Below is final display when game ends-->
     
