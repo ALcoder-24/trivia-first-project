@@ -1,4 +1,4 @@
-# trivia-first-project
+# trivia-myfirst-project
 
 My first project is a simple 10 question trivia game. The game is multiple choice format with the main objective of receiving a perfect score.
 
