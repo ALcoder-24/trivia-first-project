@@ -22,3 +22,7 @@ My first project is a simple 10 question trivia game. The game is multiple choic
 5. After the 10th question the final score is displayed 
 6. Restart butto is also available.
 
+![Landing Page](./assets/landing.png)
+![Game view](./assets/gameView.png)
+![Game view](./assets/gameView2.png)
+![Game view](./assets/gameEnds.png)

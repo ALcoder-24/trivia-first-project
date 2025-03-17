@@ -98,7 +98,7 @@ const lowScoreMessage = () => "Time to hit the library ";
 const questionElement = document.querySelector("#question");
 const nextQuestionButton = document.querySelector("#next-question button");
 const answerButtonsContainer = document.querySelector("#answerButtons");
-const playButton = document.querySelector("#start-game")
+const playButton = document.querySelector("#start-game");
 
 playButton.addEventListener("click", startTrivia);
 nextQuestionButton.addEventListener("click", nextQuestion);
@@ -137,13 +137,12 @@ function checkAnswer(button, selectedOption, correctAnswer) {
   document.getElementById("next-question").style.display = "block";
 }
 
-
 function nextQuestion() {
   currentQuestionIndex++;
 
   if (currentQuestionIndex < triviaData.length) {
     displayQuestion(triviaData[currentQuestionIndex]);
-    document.getElementById("next-question").style.display ="none";
+    document.getElementById("next-question").style.display = "none";
   } else {
     document.getElementById("final-score-display").style.display = "block";
     document.getElementById("final-score").textContent = score;
@@ -186,8 +185,5 @@ function startTrivia() {
   document.getElementById("next-question").style.display = "none";
   document.getElementById("final-score-display").style.display = "none";
 
-  
   displayQuestion(triviaData[currentQuestionIndex]);
 }
-
-
