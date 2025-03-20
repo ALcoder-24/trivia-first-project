@@ -1,3 +1,9 @@
+// Emre's presentation notes
+// - Good code syntax and spacing and execution!
+// - Challenge yourself more, you can deliver a more complex app!
+// - Leave more comments in your code!
+
+/*-------------------------------- Constants --------------------------------*/
 const triviaData = [
   {
     question:
@@ -88,21 +94,41 @@ const triviaData = [
   },
 ];
 
-let currentQuestionIndex = 0;
-let score = 0;
-
 const highScoreMessage = () => "That was impressive";
 const averageScoreMessage = () => "Your'e pretty average";
 const lowScoreMessage = () => "Time to hit the library ";
 
+/*-------------------------------- Variables --------------------------------*/
+let currentQuestionIndex = 0;
+let score = 0;
+
+/*------------------------ Cached Element References ------------------------*/
 const questionElement = document.querySelector("#question");
 const nextQuestionButton = document.querySelector("#next-question button");
 const answerButtonsContainer = document.querySelector("#answerButtons");
 const playButton = document.querySelector("#start-game");
+// You chose to cache elements in 2 different ways, choose one way and stick to that!
+// Especially if you're getting code from GPTs, it becomes obvious when you are doing
+// the same thing in 2 different ways. So if like above you're caching dom elements
+// into variables, keep doing that instead of what you did below with dom elements
+// being cached in functions.. I will move them above to show you what that looks like.
+// And in this way, you won't have dupicate code.
+const scoreElement = document.getElementById("score");
+const restartButton = document.getElementById("restart-game");
+const finalScoreElement = document.getElementById("final-score-display");
+const nextQuestionElement = document.getElementById("next-question");
+const finalMessageElement = document.getElementById("final-message");
+const landingPageEl = document.getElementById("landingPage");
+const triviaModeEl = document.getElementById("triviaMode");
+const scoreBoardEl = document.getElementById("score-board")
 
+/*----------------------------- Event Listeners -----------------------------*/
 playButton.addEventListener("click", startTrivia);
 nextQuestionButton.addEventListener("click", nextQuestion);
 
+/*-------------------------------- Functions --------------------------------*/
+// TODO: Use arrow functions, instead of function declerations, you used arrow
+// functions above - so stick to a single method
 function displayQuestion(questionObj) {
   questionElement.textContent = questionObj.question;
   answerButtonsContainer.innerHTML = "";
@@ -111,6 +137,7 @@ function displayQuestion(questionObj) {
     () => Math.random() - 0.5
   );
 
+  // TODO: Declate the button created below above
   shuffledOptions.forEach((option) => {
     const button = document.createElement("button");
     button.textContent = option;
@@ -123,6 +150,7 @@ function displayQuestion(questionObj) {
 }
 
 function checkAnswer(button, selectedOption, correctAnswer) {
+  // TODO: Move this cache above with all the other ones
   document.querySelectorAll(".answer-button").forEach((btn) => {
     btn.disabled = true;
   });
@@ -130,11 +158,11 @@ function checkAnswer(button, selectedOption, correctAnswer) {
   if (selectedOption === correctAnswer) {
     button.classList.add("correct");
     score++;
-    document.getElementById("score").textContent = score;
+    scoreElement.textContent = score;
   } else {
     button.classList.add("incorrect");
   }
-  document.getElementById("next-question").style.display = "block";
+  nextQuestionElement.style.display = "block";
 }
 
 function nextQuestion() {
@@ -142,12 +170,12 @@ function nextQuestion() {
 
   if (currentQuestionIndex < triviaData.length) {
     displayQuestion(triviaData[currentQuestionIndex]);
-    document.getElementById("next-question").style.display = "none";
+    nextQuestionElement.style.display = "none";
   } else {
-    document.getElementById("final-score-display").style.display = "block";
-    document.getElementById("final-score").textContent = score;
-    document.getElementById("next-question").style.display = "none";
-    document.getElementById("restart-game").style.display = "block";
+    finalScoreElement.style.display = "block";
+    finalScoreElement.textContent = score;
+    nextQuestionElement.style.display = "none";
+    restartButton.style.display = "block";
 
     let message = "";
     if (score <= 4) {
@@ -158,32 +186,33 @@ function nextQuestion() {
       message = "That was impressive! Want to try again?";
     }
 
-    document.getElementById("final-message").textContent = message;
-    document.getElementById("final-message").style.display = "block";
+    finalMessageElement.textContent = message;
+    finalMessageElement.style.display = "block";
   }
 }
 
 function restartGame() {
   currentQuestionIndex = 0;
   score = 0;
-  document.getElementById("score").textContent = score;
-  document.getElementById("restart-game").style.display = "none";
-  document.getElementById("final-score-display").style.display = "none";
-  document.getElementById("next-question").style.display = "none";
-  document.getElementById("final-message").style.display = "none";
+
+  scoreElement.textContent = score;
+  restartButton.style.display = "none";
+  finalScoreElement.style.display = "none";
+  nextQuestionElement.style.display = "none";
+  finalMessageElement.style.display = "none";
 
   displayQuestion(triviaData[currentQuestionIndex]);
-  document.getElementById("landingPage").style.display = "none";
-  document.getElementById("triviaMode").style.display = "block";
-  document.getElementById("score-board").style.display = "block";
+  landingPageEl.style.display = "none";
+  triviaModeEl.style.display = "block";
+  scoreBoardEl.style.display = "block";
 }
 
 function startTrivia() {
-  document.getElementById("landingPage").style.display = "none";
-  document.getElementById("triviaMode").style.display = "block";
-  document.getElementById("score-board").style.display = "block";
-  document.getElementById("next-question").style.display = "none";
-  document.getElementById("final-score-display").style.display = "none";
+  landingPageEl.style.display = "none";
+  triviaModeEl.style.display = "block";
+  scoreBoardEl.style.display = "block";
+  nextQuestionElement.style.display = "none";
+  finalScoreElement.style.display = "none";
 
   displayQuestion(triviaData[currentQuestionIndex]);
 }
